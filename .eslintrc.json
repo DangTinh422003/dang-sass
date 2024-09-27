@@ -20,8 +20,16 @@
         "plugin:prettier/recommended",
         "plugin:tailwindcss/recommended"
       ],
-      "plugins": ["@typescript-eslint", "immer", "simple-import-sort", "import", "readable-tailwind"],
+      "plugins": [
+        "@typescript-eslint",
+        "immer",
+        "simple-import-sort",
+        "import",
+        "readable-tailwind"
+      ],
       "rules": {
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
         "tailwindcss/classnames-order": 0,
         "@typescript-eslint/consistent-type-imports": [
           "error",
@@ -53,14 +61,17 @@
         "react/function-component-definition": [
           "error",
           {
-            "namedComponents": ["arrow-function", "function-declaration", "function-expression"],
+            "namedComponents": [
+              "arrow-function",
+              "function-declaration",
+              "function-expression"
+            ],
             "unnamedComponents": "arrow-function"
           }
         ],
         "react/prop-types": 0,
         "react/require-default-props": 0,
         "immer/no-update-map": "error",
-        "simple-import-sort/exports": "error",
         "import/first": "error",
         "import/newline-after-import": "error",
         "import/no-duplicates": "error",
@@ -74,28 +85,28 @@
           }
         ],
         "readable-tailwind/multiline": [
-          "error",
+          "warn",
           {
-            "callees": ["tw", "twMerge"],
-            "printWidth": 120
+            "callees": ["tw", "twMerge", "cva", "cn", "clsx"],
+            "printWidth": 80
           }
         ],
         "readable-tailwind/no-unnecessary-whitespace": [
           "error",
           {
-            "callees": ["tw", "twMerge"]
+            "callees": ["tw", "twMerge", "cva", "cn", "clsx"]
           }
         ],
         "readable-tailwind/sort-classes": [
           "error",
           {
-            "callees": ["tw", "twMerge"]
+            "callees": ["tw", "twMerge", "cva", "cn", "clsx"]
           }
         ],
         "readable-tailwind/no-duplicate-classes": [
           "error",
           {
-            "callees": ["tw", "twMerge"]
+            "callees": ["tw", "twMerge", "cva", "cn", "clsx"]
           }
         ]
       }
