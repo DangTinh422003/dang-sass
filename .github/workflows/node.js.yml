@@ -1,41 +1,32 @@
-name: Node.js CI
-
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  - push
+  - pull_request
 
 jobs:
-  build:
+  cache-and-install:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
-
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node.js ${{ matrix.node-version }}
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
           cache: 'pnpm'
 
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: 8 # Phiên bản pnpm bạn muốn dùng, bạn có thể thay đổi số phiên bản này.
-
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
-      - name: Lint code
+      - name: Check Lint
         run: pnpm run lint
 
-      - name: Build project
-        run: pnpm run build --if-present
+      - name: Build
+        run: pnpm run build
