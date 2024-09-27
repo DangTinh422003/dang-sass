@@ -13,7 +13,6 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v4
@@ -22,6 +21,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - run: pnpm ci
+      - run: pnpm install --frozen-lockfile
       - run: pnpm run lint
       - run: pnpm run build --if-present
