@@ -1,10 +1,10 @@
 import '@/styles/globals.css'
 
-import type React from 'react'
 import type { Metadata } from 'next'
+import type React from 'react'
 
-import { ThemeProvider } from '@/contexts/theme-provider'
 import Navbar from '@/components/Navbar'
+import { ThemeProvider } from '@/contexts/theme-provider'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
