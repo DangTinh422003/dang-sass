@@ -76,14 +76,13 @@ const DashboardLayout = async ({ children }: DashboardLayoutProps) => {
         <DashboardNav />
         <aside
           className={`
-            hidden w-[200px] flex-col
+            hidden flex-col
 
             md:flex
           `}
         >
-          <h1>hello</h1>
+          <main>{children}</main>
         </aside>
-        <main>{children}</main>
       </div>
     </div>
   )

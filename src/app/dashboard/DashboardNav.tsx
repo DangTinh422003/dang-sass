@@ -28,9 +28,9 @@ const DashboardNav = () => {
   const pathname = usePathname()
 
   return (
-    <div className="grid items-start gap-2">
+    <div className="flex flex-col items-start gap-2">
       {navItems.map((item) => (
-        <Link href={item.href} key={item.name}>
+        <Link href={item.href} key={item.name} className="w-full">
           <span
             className={dashboardNavVarians({
               state: pathname === item.href ? 'active' : 'inactive',
