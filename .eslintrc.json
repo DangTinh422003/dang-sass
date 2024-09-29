@@ -47,7 +47,7 @@
             "ignorePropertyModificationsForRegex": ["^draft", "state"]
           }
         ],
-        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "no-console": ["warn", { "allow": ["warn", "error"] }],
         "react/jsx-wrap-multilines": [
           "error",
           {
