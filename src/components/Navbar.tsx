@@ -10,8 +10,8 @@ import { Button } from '@/components/ui/button'
 import UserNav from '@/components/UserNav'
 
 const Navbar = async () => {
-  const { isAuthenticated, getUser } = getKindeServerSession();
-  const user = await getUser();
+  const { isAuthenticated, getUser } = getKindeServerSession()
+  const user = await getUser()
 
   return (
     <div className="flex h-[10vh] items-center border-b bg-background">
@@ -23,7 +23,14 @@ const Navbar = async () => {
         </Link>
         <div className="flex items-center gap-x-3">
           {(await isAuthenticated()) ?
-            <UserNav avatar={user.picture ?? ''} email={user.email ?? ''} username={user.username ?? ''}/>
+            <UserNav
+              avatar={user.picture ?? ''}
+              email={user.email ?? ''}
+              username={
+                user.username ??
+                `${user.given_name ?? ''} ${user.family_name ?? ''}`
+              }
+            />
           : <div className="flex items-center gap-x-3">
               <LoginLink>
                 <Button>Sign In</Button>

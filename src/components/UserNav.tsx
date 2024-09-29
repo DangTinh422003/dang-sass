@@ -16,17 +16,17 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 interface UserNavProps {
-  username : string;
-  email: string;
-  avatar: string;
+  username: string
+  email: string
+  avatar: string
 }
 
-const UserNav = ({ avatar,email,username} : UserNavProps) => {
+const UserNav = ({ avatar, email, username }: UserNavProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="border-none outline-none">
         <Avatar className="relative size-10 rounded-full">
-          <AvatarImage src={avatar || "https://github.com/shadcn.png"} alt="" />
+          <AvatarImage src={avatar || 'https://github.com/shadcn.png'} alt="" />
           <AvatarFallback>{username}</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
@@ -34,7 +34,7 @@ const UserNav = ({ avatar,email,username} : UserNavProps) => {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel>
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">Dang Tinh</p>
+            <p className="text-sm font-medium leading-none">{username}</p>
             <p className="text-xs font-medium leading-none text-muted-foreground">
               {email}
             </p>
